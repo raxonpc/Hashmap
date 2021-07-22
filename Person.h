@@ -16,4 +16,7 @@ typedef struct Person Person;
 /* allocates Person on the heap and initializes its fields */
 Error allocate_person(Person*, const char*, int, Person*);
 
+/* inserts Person at the end of the list */
+Error insert_person(Person*, Person*);
+
 #endif /* PERSON_H */
