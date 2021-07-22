@@ -7,7 +7,7 @@
 /* struct representing Person */
 struct Person
 {
-    const char *m_name;
+    char *m_name;
     int m_age;
     struct Person *m_next;  /* Pointer to the next element in the list */
 };
