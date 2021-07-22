@@ -1,8 +1,7 @@
 #ifndef ERROR_H
 #define ERROR_H
 
-enum Error
-{
+enum Error {
     ERROR_SUCCESS,
     ERROR_NULL,
     ERROR_OUT_OF_RANGE,
@@ -14,4 +13,3 @@ typedef enum Error Error;
 const char *get_error_string(Error);
 
 #endif /* ERROR_H */
-
