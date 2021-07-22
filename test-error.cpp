@@ -1,5 +1,6 @@
 #include "catch_amalgamated.hpp"
 #include <unordered_map>
+#include <string>
 
 extern "C"
 {
