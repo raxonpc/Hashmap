@@ -15,10 +15,47 @@ SCENARIO("Should insert Person at the end of the list", "[person][insert]") {
 
         WHEN("Inserting another Person") {
             Person next{"Linus", 30, nullptr};
-            insert_person(&head, &next);
+            auto err = insert_person(&head, &next);
 
             THEN("It should be added at the end of list") {
+                REQUIRE(err == ERROR_SUCCESS);
                 REQUIRE(*head.m_next == next);
+            }
+        }
+    }
+}
+
+SCENARIO("Should return ERROR_NULL when inserting nullptr", "[person][insert][error]")
+{
+    GIVEN("A Person nullptr")
+    {       
+        Person* head = nullptr;
+
+        WHEN("Inserting Person")
+        {
+            Person next{"Linus", 30, nullptr};
+            auto err = insert_person(head, &next);
+            
+            THEN("It should return ERROR_NULL")
+            {
+                REQUIRE(err == ERROR_NULL);
+            }
+        }
+    }
+
+    GIVEN("A single element list")
+    {
+        Person head{ "Szymon", 17, nullptr};
+
+        WHEN("Inserting nullptr")
+        {
+            Person* next = nullptr;
+
+            auto err = insert_person(&head, next);
+
+            THEN("It should return ERROR_NULL")
+            {
+                REQUIRE(err == ERROR_NULL);
             }
         }
     }
