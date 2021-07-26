@@ -2,10 +2,10 @@ cmake_minimum_required (VERSION 3.10)
 project (hash_map)
 
 set (FLAGS -Wall -Wextra -Wpedantic -Werror)
-set (SRC Error.c Person.c)
+set (SRC Error.c Person.c Hashmap.c)
 
 add_executable (${PROJECT_NAME} main.c ${SRC})
-target_compile_options (${PROJECT_NAME} PRIVATE ${FLAGS})
+target_compile_options (${PROJECT_NAME} PRIVATE ${FLAGS} -g -O0)
 
 add_executable (${PROJECT_NAME}-error-ut test-error.cpp catch_amalgamated.cpp ${SRC})
 add_executable (${PROJECT_NAME}-person-ut test-person.cpp catch_amalgamated.cpp ${SRC})

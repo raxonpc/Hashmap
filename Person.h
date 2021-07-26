@@ -2,6 +2,7 @@
 #define PERSON_H
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "Error.h"
 
@@ -14,9 +15,11 @@ struct Person {
 typedef struct Person Person;
 
 /* allocates Person on the heap and initializes its fields */
-Error allocate_person(Person *, const char *, int, Person *);
+Error allocate_person(Person**, const char*, int, Person*);
 
 /* inserts Person at the end of the list */
-Error insert_person(Person *, Person *);
+Error insert_person(Person **, Person *);
+
+void display_list(Person*);
 
 #endif /* PERSON_H */
